@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#030917" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ORIENTE" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>LA MONUMENTAL ORIENTE</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="stream-ref" content="ENC:U2FsdGVkX19sZG8xNl9tb251bWVudGFsX29yaWVudGVfYW1lcmljYV8xOTE2X2hibHMz" />
+</head>
+<body>
+  <div class="bg"></div>
+  <section class="gate" id="gate">
+    <div class="gate-card" id="gateCard">
+      <img class="crest" src="img/crest.jpg" alt="La Monumental" />
+      <h1>LA MONUMENTAL ORIENTE</h1>
+      <div class="sub">Club América · App oficial</div>
+      <label for="code">Código de acceso</label>
+      <input id="code" type="password" inputmode="text" autocomplete="off" maxlength="24" placeholder="••••••" />
+      <button class="enter" id="enterBtn" type="button">ENTRAR</button>
+      <div class="err" id="gateErr"></div>
+      <div class="hint">Solo socios · 1916 · Nunca lo entenderás</div>
+    </div>
+  </section>
+  <div class="app" id="app" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="img/crest.jpg" alt="LM" />
+        <div>
+          <h2 id="channelTitle">LA MONUMENTAL ORIENTE</h2>
+          <small id="channelSubtitle">Club América · En vivo</small>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="live-pill"><span class="dot"></span><span id="liveLabel">EN VIVO</span></div>
+    </header>
+    <main class="stage">
+      <section class="panel active" id="tab-live">
+        <div class="player-shell">
+          <div class="video-wrap" id="videoWrap">
+            <video id="player" playsinline webkit-playsinline></video>
+            <div class="poster-fallback" id="poster">
+              <button class="big-play" id="bigPlay" type="button">▶</button>
+            </div>
+            <div class="spinner" id="spinner" hidden></div>
+            <div class="overlay-info">
+              <span class="badge">HLS · SECURE</span>
+              <span class="badge" id="resBadge">AUTO</span>
+            </div>
+          </div>
+          <div class="controls">
+            <div class="timeline">
+              <input id="seek" type="range" min="0" max="1000" value="1000" />
+              <div class="time" id="timeLabel">EN VIVO</div>
+            </div>
+            <div class="row">
+              <button class="ctrl" id="playBtn" type="button">▶</button>
+              <button class="ctrl" id="stopLiveBtn" type="button">⦿</button>
+              <button class="ctrl" id="muteBtn" type="button">🔊</button>
+              <input class="vol" id="vol" type="range" min="0" max="1" step="0.01" value="1" />
+              <span class="status-line" id="status">Listo</span>
+              <div class="spacer"></div>
+              <select class="quality" id="quality"><option value="-1">AUTO</option></select>
+              <button class="ctrl" id="pipBtn" type="button">⧉</button>
+              <button class="ctrl" id="theaterBtn" type="button">▭</button>
+              <button class="ctrl" id="fsBtn" type="button">⛶</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="panel club" id="tab-club">
+        <div class="hero-card"><span>LA MONUMENTAL ORIENTE</span></div>
+        <div class="card player-card">
+          <img src="img/player.jpg" alt="Águila" />
+          <div class="meta">
+            <h3>SANGRE AMARILLA</h3>
+            <p>App de transmisión · Ciudad de México</p>
+          </div>
+        </div>
+        <div class="card motto-card">
+          <img src="img/crest.jpg" alt="Crest" />
+          <p id="motto">NUNCA LO ENTENDERÁS SI NO ERES UNO DE NOSOTROS</p>
+        </div>
+      </section>
+      <section class="panel admin-page" id="tab-admin">
+        <h3>Administración</h3>
+        <p class="help">La URL real solo la ve el admin. El visor reproduce un manifiesto local opaco.</p>
+        <div id="adminLock">
+          <label>PIN de administrador</label>
+          <input id="adminPin" type="password" placeholder="PIN" />
+          <div class="actions">
+            <button class="btn-gold" id="unlockBtn" type="button">Desbloquear</button>
+          </div>
+        </div>
+        <div id="adminForm" hidden>
+          <label>URL del stream (solo admin)</label>
+          <textarea id="cfgUrl" spellcheck="false"></textarea>
+          <label>Código de acceso</label>
+          <input id="cfgCode" />
+          <label>PIN admin</label>
+          <input id="cfgPin" />
+          <label>Título</label>
+          <input id="cfgTitle" />
+          <label>Subtítulo</label>
+          <input id="cfgSub" />
+          <label>Lema</label>
+          <input id="cfgMotto" />
+          <div class="enc-box" id="encBox">URL cifrada: —</div>
+          <div class="actions">
+            <button class="btn-gold" id="saveBtn" type="button">Guardar</button>
+            <button class="btn-ghost" id="logoutBtn" type="button">Cerrar sesión</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <nav class="tabbar">
+      <button class="tab active" data-tab="tab-live" type="button"><span class="ico">▶</span>En vivo</button>
+      <button class="tab" data-tab="tab-club" type="button"><span class="ico">★</span>Club</button>
+      <button class="tab" data-tab="tab-admin" type="button"><span class="ico">⚙</span>Admin</button>
+    </nav>
+  </div>
+  <div class="install-banner" id="installBanner">
+    <b>Instalar app en el celular</b>
+    <p id="installText">Agrégala a tu pantalla de inicio y se abre como aplicación.</p>
+    <div class="row">
+      <button class="btn-gold" id="installBtn" type="button">Instalar</button>
+      <button class="btn-ghost" id="dismissInstall" type="button">Ahora no</button>
+    </div>
+  </div>
+  <div class="toast" id="toast" hidden></div>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
