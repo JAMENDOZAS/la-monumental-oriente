@@ -1,0 +1,13 @@
+{
+  "name": "la-monumental-oriente",
+  "version": "2.0.0",
+  "private": true,
+  "description": "App móvil PWA · LA MONUMENTAL ORIENTE · Club América",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
